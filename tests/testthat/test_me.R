@@ -1,4 +1,4 @@
-# test for function gday
+context("test for function gday")
 test_that("case is ignored", {
 	expect_equal(gday("canucks"), gday("CANUCKS"))
 })
@@ -30,12 +30,12 @@ test_that("Wrong date type throws error", {
 })
 
 
-# test for internet_connection
+context("test for internet_connection")
 test_that("always returns logical for internet_connection", {
 	expect_is(internet_connection(), "logical")
 })
 
-# test for check_date
+context("test for check_date")
 test_that("always returns logical for check_date", {
 	expect_is(check_date(), "logical")
 })
@@ -44,7 +44,7 @@ test_that("No 29th in Feb of 2001", {
 	expect_false(check_date("2001-02-29"))
 })
 
-# test for scores
+context("test for scores")
 test_that("always returns date.frame for check_date", {
 	expect_is(scores(), "data.frame")
 })
