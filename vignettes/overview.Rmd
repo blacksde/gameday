@@ -4,20 +4,26 @@ author: "Zichun Ye"
 date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{Vignette Title}
+  %\VignetteIndexEntry{gameday}
   %\VignetteEngine{knitr::rmarkdown}
   %\usepackage[utf8]{inputenc}
 ---
 
-Vignettes are long form documentation commonly included in packages. Because they are part of the distribution of the package, they need to be as compact as possible. The `html_vignette` output type provides a custom style sheet (and tweaks some options) to ensure that the resulting html is as small as possible. The `html_vignette` format:
+You know then problem: You're in your office writing R code and suddenly have 
+the urge to check whether your NHL team has a game or what the scores of NHL 
+games are today. Before you know it you just wasted 15 minutes browsing the 
+lastest news on your favorite hockey webpage. Suffer no more! You can now ask 
+R directly, without tempting yourself by firing up your web browser.
 
-- Never uses retina figures
-- Has a smaller default figure size
-- Uses a custom CSS stylesheet instead of the default Twitter Bootstrap style
+## Function
 
-## Vignette Info
+* `gday`
+  - parameter: `team` and `date`;
+  - return: Logical. `TRUE` if `team` has a NHL game on `date`, `FALSE` otherwise.
+* `scores`
+  - parameter: `date`;
+  - return: a date frame with home team, away team, home score and away score.
 
-Note the various macros within the `vignette` setion of the metadata block above. These are required in order to instruct R how to build the vignette. Note that you should change the `title` field and the `\VignetteIndexEntry` to match the title of your vignette.
 
 ## Styles
 

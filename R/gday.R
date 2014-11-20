@@ -10,8 +10,8 @@
 #' Suffer no more! You can now ask R directly, without tempting yourself
 #' by firing up your web browser.
 #'
-#' @param team
-#' @return Logical. \code{TRUE} if \code{team} has a NHL game today,
+#' @param team, date
+#' @return Logical. \code{TRUE} if \code{team} has a NHL game on \code{date},
 #' \code{FALSE} otherwise
 #' @keywords misc
 #' @note case in \code{team} is ignored

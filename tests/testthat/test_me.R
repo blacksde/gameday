@@ -44,6 +44,17 @@ test_that("No 29th in Feb of 2001", {
 	expect_false(check_date("2001-02-29"))
 })
 
+# test for scores
+test_that("always returns date.frame for check_date", {
+	expect_is(scores(), "data.frame")
+})
+
+test_that("the return values have enough information", {
+	expect_equal(names(scores()), c("home","away", "home_score","away_score"))
+})
+
+
+
 
 
 
