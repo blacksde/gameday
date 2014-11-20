@@ -3,7 +3,7 @@
 \alias{gday}
 \title{Is it Gameday?}
 \usage{
-gday(team = "canucks")
+gday(team = "canucks", date = Sys.Date())
 }
 \arguments{
 \item{team}{}

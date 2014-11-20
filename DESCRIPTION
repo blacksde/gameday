@@ -8,11 +8,14 @@ Authors@R: as.person(c(
     ))
 Description: Query live.nhle.com to check if your NHL team is listed on
     the teams that play today
-Depends: 
+Depends:
     R (>= 3.1.1)
 License: CC0
 LazyData: true
-Imports: 
-    RCurl
-Suggests: knitr
+Imports:
+    RCurl,
+    assertthat
+Suggests:
+    knitr,
+    testthat
 VignetteBuilder: knitr
