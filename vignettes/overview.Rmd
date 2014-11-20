@@ -25,40 +25,57 @@ R directly, without tempting yourself by firing up your web browser.
   - return: a date frame with home team, away team, home score and away score.
 
 
-## Styles
-
-The `html_vignette` template includes a basic CSS theme. To override this theme you can specify your own CSS in the document metadata as follows:
-
-    output: 
-      rmarkdown::html_vignette:
-        css: mystyles.css
-
-## Figures
-
-The figure sizes have been customised so that you can easily put two images side-by-side. 
-
-```{r, fig.show='hold'}
-plot(1:10)
-plot(10:1)
-```
-
-You can enable figure captions by `fig_caption: yes` in YAML:
-
-    output:
-      rmarkdown::html_vignette:
-        fig_caption: yes
-
-Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
 
 ## More Examples
 
-You can write math expressions, e.g. $Y = X\beta + \epsilon$, footnotes^[A footnote here.], and tables, e.g. using `knitr::kable()`.
+The following is some examples of these two functions.
 
-```{r, echo=FALSE, results='asis'}
-knitr::kable(head(mtcars, 10))
+
+* E.g. 1: calculate the winning percentage of home team in the past month.
+```{r, results='asis'}
+library(plyr)
+library(ggplot2)
+library(ggthemes)
+library(gameday)
+date<-data.frame(date = as.Date(-30:0,Sys.time()))
+
+perc<-ddply(date, ~date, function(x){
+	score<-scores(x$date)
+	return(data.frame(perc=nrow(score[score$home_score>score$away_score,])/nrow(score)))
+})
+
+ggplot(perc,aes(x = date, y = perc))+
+	geom_point()+
+	geom_smooth(method = "loess")+
+	theme_gdocs()
 ```
 
-Also a quote using `>`:
+* E.g. 2: compare games and back to back games of Canucks in the last 6 weeks.
 
-> "He who gives up [code] safety for [code] speed deserves neither."
-([via](https://twitter.com/hadleywickham/status/504368538874703872))
+Here back to back game is defined to be have games in two contiguous days.
+```{r, results='asis'}
+date<-data.frame(date = as.Date(-41:0,Sys.time()))
+
+games<-ddply(date, ~date, function(x){
+	if(gday(date = x$date)) return(TRUE)
+	return(FALSE)
+})
+backtoback<-ddply(date, ~date, function(x){
+	if(gday(date = x$date)&gday(date = x$date+1)) return(TRUE)
+	return(FALSE)
+})
+
+data<-data.frame(week = 1:6)
+
+for(i in 1:6){
+	data$game[i] = sum(games[(7*i-6):(7*i),2])
+	data$backtoback[i] = (sum(backtoback[(7*i-6):(7*i),2])!=0)
+}
+
+
+ggplot(data, aes(week,game,fill=backtoback))+
+  geom_bar(stat="identity")+
+  theme_gdocs()	
+```
+
+The red bar represents the week without back to back game while the green one represent the week with back to back games.
