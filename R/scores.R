@@ -23,10 +23,12 @@ scores<-function(date = Sys.Date()){
 	json <- gsub('([a-zA-Z_0-9\\.]*\\()|(\\);?$)', "", raw, perl = TRUE)
 	data <- jsonlite::fromJSON(json)$games
 	results<-with(data,
-			 data.frame(home = paste(htn, htcommon),
+			 data.frame(game_place = htn,
+			 					 home = paste(htn, htcommon),
 			 					 away = paste(atn, atcommon),
 			 					 home_score = hts,
-			 					 away_score = ats))
+			 					 away_score = ats,
+			 					 completed = rl))
 	return(results)
 }
 
