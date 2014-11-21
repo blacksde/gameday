@@ -32,7 +32,7 @@ R directly, without tempting yourself by firing up your web browser.
   
 ## Dataset
 
-arena_team: information about arean, team, lat and long
+1. `arena_team`: information about arean, team, lat and long
 
 
 
