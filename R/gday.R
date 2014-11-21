@@ -26,6 +26,7 @@ gday <- function(team="canucks",date = Sys.Date()) {
 		return(FALSE)
 	}
 	assertthat::assert_that(check_date(date))
+	assertthat::assert_that(check_team(team)!=0)
 	url <- paste0("http://live.nhle.com/GameData/GCScoreboard/", as.Date(date), ".jsonp")
 	grepl(team, RCurl::getURL(url), ignore.case=TRUE)
 }

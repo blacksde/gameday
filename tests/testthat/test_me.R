@@ -12,7 +12,7 @@ test_that("asking for the city works just as well", {
 })
 
 test_that("Seattle does not have a NHL team", {
-	expect_false(gday(team="Seattle"))
+	expect_error(gday(team="Seattle"))
 })
 
 test_that("Vancouver Canucks had a game against Nashville Predators on 2014-11-02", {
@@ -50,8 +50,15 @@ test_that("always returns date.frame for check_date", {
 })
 
 test_that("the return values have enough information", {
-	expect_equal(names(scores()), c("home","away", "home_score","away_score"))
+	expect_equal(names(scores()), c("game_place", "home", "away",
+																	"home_score", "away_score", "completed"))
 })
+
+test_that("completed alway return logic",{
+	expect_is(scores()$completed, "logical")
+})
+
+
 
 
 

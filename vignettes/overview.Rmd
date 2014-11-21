@@ -17,12 +17,22 @@ R directly, without tempting yourself by firing up your web browser.
 
 ## Function
 
-* `gday`
-  - parameter: `team` and `date`;
-  - return: Logical. `TRUE` if `team` has a NHL game on `date`, `FALSE` otherwise.
-* `scores`
-  - parameter: `date`;
-  - return: a date frame with home team, away team, home score and away score.
+
+1. `gday`
+   - parameter: `team` and `date`;
+   - return: Logical. `TRUE` if `team` has a NHL game on `date`, `FALSE` otherwise.
+  
+2. `scores`
+   - parameter: `date`;
+   - return: a date frame with game place, home team, away team, home score, away score and whether the game is completed.
+  
+3. `info_team`
+   - parameter: `team` and `date`;
+   - return: a date frame with information about arean, team, lat and long
+  
+## Dataset
+
+arena_team: information about arean, team, lat and long
 
 
 
