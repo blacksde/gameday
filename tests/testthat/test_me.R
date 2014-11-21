@@ -58,6 +58,15 @@ test_that("completed alway return logic",{
 	expect_is(scores()$completed, "logical")
 })
 
+context("test for info_team")
+test_that("no team in seattle", {
+	expect_equal(info_team("seattle"), 0)
+})
+
+test_that("always returns date.frame with a valid team", {
+	expect_is(scores(), "data.frame")
+})
+
 
 
 
