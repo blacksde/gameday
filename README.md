@@ -31,6 +31,12 @@ To install the package, use `devtools::install_github("blacksde/gameday")`.
 * check the score of all games in Nov 19 2014: `score("2014-11-19)`;
 * check the information of team in New York: `info_team("New York").
 
+## Vignettes
+After installing the package, you can view the vignettes by: `browseVignettes(package = "gameday")`. 
+
+If you can't wait, I prepare a pdf file for you [here](https://github.com/blacksde/gameday/blob/master/vignettes/gameday.pdf).
+
+
 
 
 
