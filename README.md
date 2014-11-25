@@ -29,7 +29,7 @@ To install the package, use `devtools::install_github("blacksde/gameday")`.
 ## Simple example
 * check whether Canucks on Nov 19 2014: `gday(team="canucks",date = "2014-11-19")`;
 * check the score of all games in Nov 19 2014: `score("2014-11-19)`;
-* check the information of team in New York: `info_team("New York").
+* check the information of team in New York: `info_team("New York")`.
 
 ## Vignettes
 After installing the package, you can view the vignettes by: `browseVignettes(package = "gameday")`. 
