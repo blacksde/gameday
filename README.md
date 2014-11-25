@@ -18,7 +18,7 @@ To install the package, use `devtools::install_github("blacksde/gameday")`.
    - return: a date frame with game place, home team, away team, home score, away score and whether the game is completed.
   
 3. `info_team`
-   - parameter: `team` and `date`;
+   - parameter: `team`;
    - return: a date frame with information about arean, team, lat and long
   
 ## Dataset
